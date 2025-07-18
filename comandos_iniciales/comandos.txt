@@ -1,3 +1,5 @@
+## COFIGURACION DOCKER
+
 docker network create red_mmorpg
 
 docker run -d --name postgres_mmorpg --network red_mmorpg -e POSTGRES_DB=mmorpg -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin -p 5432:5432 bitnami/postgresql:latest
