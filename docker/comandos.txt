@@ -1,0 +1,8 @@
+docker network create red_mmorpg
+
+docker run -d --name postgres_mmorpg --network red_mmorpg -e POSTGRES_DB=mmorpg -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin -p 5432:5432 bitnami/postgresql:latest
+
+docker run -d --name keycloak_mmorpg --network red_mmorpg -e KC_BOOTSTRAP_ADMIN_USERNAME=admin -e KC_BOOTSTRAP_ADMIN_PASSWORD=admin -e KEYCLOAK_DATABASE_HOST=postgres_mmorpg -e KEYCLOAK_DATABASE_NAME=mmorpg -e KEYCLOAK_DATABASE_USER=admin -e KEYCLOAK_DATABASE_PASSWORD=admin -p 9000:8080 bitnami/keycloak:latest
+
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' postgres_mmorpg
+
