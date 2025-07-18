@@ -1,4 +1,4 @@
-package com.facquer.mmorpg.controller;
+package com.facquer.mmorpg.controller.demo;
 
 import com.facquer.mmorpg.utils.GenericResponse;
 import com.facquer.mmorpg.utils.UtilsApi;

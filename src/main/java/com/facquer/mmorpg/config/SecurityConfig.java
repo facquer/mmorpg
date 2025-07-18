@@ -26,7 +26,7 @@ public class SecurityConfig {
         return httpSecurity
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(http -> {
-                    http.requestMatchers("/create-user").permitAll();
+                    http.requestMatchers("/**").permitAll();
                     http.anyRequest().authenticated();
                 })
                 .oauth2ResourceServer(oauth -> {
